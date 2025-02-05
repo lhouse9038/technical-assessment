@@ -24,6 +24,8 @@ class MapController {
   #mapview?: __esri.MapView;
   #mapLayers?: __esri.Layer[];
   firesLayerView: __esri.FeatureLayerView | undefined;
+  scaleBarAdded: boolean | undefined;
+  basemapGalleryAdded: boolean | undefined;
 
   /**
    * Initialize the MapView and Map
