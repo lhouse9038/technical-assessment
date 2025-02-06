@@ -1,0 +1,93 @@
+@use './variables.scss';
+
+@import url('https://js.arcgis.com/4.31/esri/themes/light/main.css');
+
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body,
+.app-container {
+  overflow: hidden;
+  position: fixed;
+  width: 100vw;
+  margin: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+
+  .mapview-container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+  }
+
+  .chart-container {
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+    width: 20%;
+    height: auto; 
+    z-index: 1000;
+    overflow: hidden;
+  }
+}
+
+.basemap-container {
+  width: auto; /* or set a specific width */
+  height: auto; /* or set a specific height */
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  position: absolute;
+  top: 50px; /* Adjust based on your UI */
+  right: 10px;
+  z-index: 1000;
+}
+
+.basemap-container.hidden {
+  display: none;
+}
+
+.toggle-basemap {
+  position: absolute;
+  top: 50%;
+  left: -30px;
+  transform: translateY(-50%);
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 5px 10px;
+
+  &:hover {
+    background-color: darken(#007bff, 10%);
+  }
+
+  &.closed {
+    left: calc(100% - 30px); // move the button inside when the panel is closed
+  }
+}
+
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  cursor: pointer;
+
+  &.styleless-button {
+    // BELOW RESETS DEFAULT BUTTON STYLING
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+  }
+}
